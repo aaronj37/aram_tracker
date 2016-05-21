@@ -3,6 +3,7 @@ $user='postgres';
 $password='db';
 $server='localhost';
 $database="postgres";
+$APIKey="bd9cbfef-5a84-4523-a8fa-5a5e33eb56a9";
 $con = pg_connect("host=$server port=5432 dbname=$database user=$user password= $password")
         or die('Error Connecting to PG DataBase');
 

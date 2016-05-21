@@ -7,6 +7,7 @@
  */
 include 'connect.php';
 
+
 //$name=$_POST['name'];
 $SummonerName='Jampants';
 $SummonerId=GetSummonerId($SummonerName);
@@ -27,8 +28,8 @@ else
 
 function GetSummonerId($SummonerName) //Gets Summoner Id from riot API using summoner name
 {
-
-    $url = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/$SummonerName?api_key=bd9cbfef-5a84-4523-a8fa-5a5e33eb56a9";
+    global $APIKey;
+    $url = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/$SummonerName?api_key=$APIKey";
     $data=GetData($url);
     $data=json_decode($data,true);
     //var_dump($data);
@@ -46,8 +47,8 @@ function GetSummonerId($SummonerName) //Gets Summoner Id from riot API using sum
 
 function GetCurrentGame($SummonerId) //Get current game using summoner id
 {
-
-    $url = "https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/$SummonerId/recent?api_key=bd9cbfef-5a84-4523-a8fa-5a5e33eb56a9";
+    global $APIKey;
+    $url = "https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/$SummonerId/recent?api_key=$APIKey";
     $data=GetData($url);
     $data=json_decode($data,true);
     $data=$data['games'][0];
@@ -66,8 +67,8 @@ function GetCurrentGame($SummonerId) //Get current game using summoner id
 
 function GetGameHistory($SummonerId) //Get game history using summoner id
 {
-
-$url = "https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/$SummonerId/recent?api_key=bd9cbfef-5a84-4523-a8fa-5a5e33eb56a9";
+    global $APIKey;
+$url = "https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/$SummonerId/recent?api_key=$APIKey";
     $data=GetData($url);
     $data=json_decode($data,true);
     $data=$data['games'];
@@ -77,9 +78,10 @@ $url = "https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/$SummonerId/rece
 
 function GetCurrentPlayers($SummonerId) //Get current game players using summoner ID
 {
+    global $APIKey;
     global $GameJson;
     //echo $GameJson;
-    $url="https://na.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/NA1/$SummonerId?api_key=bd9cbfef-5a84-4523-a8fa-5a5e33eb56a9";
+    $url="https://na.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/NA1/$SummonerId?api_key=$APIKey";
    $data=GetData($url);
 
     //var_dump($data);
