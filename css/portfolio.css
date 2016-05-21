@@ -1,0 +1,35 @@
+@font-face
+{
+font-family: myAwesomeFont;
+src: url('MORPHEUS.TTF');
+}
+
+h1
+{
+font-family: myAwesomeFont;
+text-align: center;
+Background-color: black;
+color: white;
+font-size: 50px;
+}
+
+p
+{
+font-family: otherAwesomeFont;
+text-align: center;
+}
+footer
+{
+font-family: anotherFont;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+position: absolute;
+bottom: 0;
+}
+textarea {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+width: 100%;
+} 
